@@ -22,6 +22,7 @@ import Circles from '../../components/Circles'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../variants'
 import CountUp from 'react-countup'
+import { icons } from 'react-icons'
 
 //  data
 const aboutData = [
@@ -31,18 +32,23 @@ const aboutData = [
       {
         title: 'Web Development',
         icons: [
-          <FaHtml5 />,
-          <FaCss3 />,
-          <FaJs />,
-          <FaReact />,
-          <SiNextdotjs />,
-          <SiFramer />,
-          <FaWordpress />,
+          <FaHtml5 key={icons} />,
+          <FaCss3 key={icons} />,
+          <FaJs key={icons} />,
+          <FaReact key={icons} />,
+          <SiNextdotjs key={icons} />,
+          <SiFramer key={icons} />,
+          <FaWordpress key={icons} />,
         ],
       },
       {
         title: 'UI/UX Design',
-        icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
+
+        icons: [
+          <FaFigma key={icons} />,
+          <SiAdobexd key={icons} />,
+          <SiAdobephotoshop key={icons} />,
+        ],
       },
     ],
   },
@@ -212,7 +218,11 @@ const About = () => {
                   <div>{item.stage}</div>
                   <div className="flex gap-x-4">
                     {item.icons?.map((icon, itemIndex) => {
-                      return <div className="text-2xl text-white">{icon}</div>
+                      return (
+                        <div key={itemIndex} className="text-2xl text-white">
+                          {icon}
+                        </div>
+                      )
                     })}
                   </div>
                 </div>
